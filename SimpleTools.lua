@@ -8,6 +8,7 @@
 
 SLASH_SIMPLERELOAD1, SLASH_SIMPLERELOAD2 = "/rl", "/srl"
 SLASH_SIMPLEGRID1, SLASH_SIMPLEGRID2 = "/ag", "/alignment"
+SLASH_SIMPLESOUND1 = "/sound"
 
 local f = CreateFrame("frame")
 local sgrid
@@ -36,6 +37,15 @@ end
 
 SlashCmdList["SIMPLERELOAD"] = function()
   ReloadUI()
+end
+
+SlashCmdList["SIMPLESOUND"] = function()
+  sound = GetCVar("Sound_EnableAllSound")
+  if sound == "1" then
+    SetCVar("Sound_EnableAllSound", "0")
+  else
+    SetCVar("Sound_EnableAllSound", "1")
+  end
 end
 
 SlashCmdList["SIMPLEGRID"] = function()
